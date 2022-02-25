@@ -38,20 +38,27 @@
 
 @push('css')
 <link rel="stylesheet" type="text/css"
-    href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/b-2.2.2/b-html5-2.2.2/fh-3.2.2/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.css" />
+    href="https://cdn.datatables.net/v/dt/jq-3.6.0/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/date-1.1.2/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.css" />
 @endpush
 
 @push('scripts')
 <script type="text/javascript"
-    src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/b-2.2.2/b-html5-2.2.2/fh-3.2.2/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.js"></script>
+    src="https://cdn.datatables.net/v/dt/jq-3.6.0/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/date-1.1.2/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript">
     $(function () {
 
         var table = $('#yajra').DataTable({
             "scrollX": true,
             scrollY: '50vh',
+            "lengthMenu": [[50, 100, 500, -1], [50, 100, 500, "All"]],
             processing: true,
             serverSide: true,
+            dom: 'lBfrtip',
+            buttons: [
+                'copy', 'csv', 'excel'
+            ],
             ajax: "{{ route('expense.list') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },

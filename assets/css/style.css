@@ -32,7 +32,18 @@ div.dataTables_wrapper {
     width: 100%;
     margin: 0 auto;
 }
-
+#yajra_filter > label > input {
+    border: 1px solid #c3c3c3 !important;
+}
+button.dt-button {
+    background: #0061f7 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+div#yajra_length {
+    margin-right: 10px;
+}
 /**
  * Render the `main` element consistently in IE.
  */

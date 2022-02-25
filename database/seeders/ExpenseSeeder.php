@@ -17,7 +17,7 @@ class ExpenseSeeder extends Seeder
             DB::table('expenses')->insert([
                 [ 
                     "created_by" => null,
-                    "total" => $x,
+                    "total" => 85,
                     "office_meal" => 5,
                     "entertainment" => 5,
                     "stationery" => 5,

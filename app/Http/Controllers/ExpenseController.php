@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use DataTables;
-
+use Carbon\Carbon;
 class ExpenseController extends Controller
 {
     /**
@@ -24,9 +24,13 @@ class ExpenseController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm"></a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm"></a>';
                     return $actionBtn;
                 })
+                ->editColumn('created_at', function ($row) {
+                    return Carbon::parse($row->created_at)->format('d/m/Y');
+                })
+                ->escapeColumns('created_at')
                 ->rawColumns(['action'])
                 ->make(true);
         }
