@@ -16,3 +16,4 @@ use App\Http\Controllers as Controllers;
 
 Route::get('dashboard', [Controllers\PageController::class, 'dashboard'])->name('dashboard');
 Route::resource('expenses', Controllers\ExpenseController::class);
+Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
