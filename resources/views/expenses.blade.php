@@ -68,7 +68,7 @@
                     orderable: false,
                     searchable: false,
                 },
-                { data: 'created_at', name: 'created_at' },
+                { data: 'date', name: 'date' },
                 { data: 'total', name: 'total' },
                 { data: 'office_meal', name: 'office_meal' },
                 { data: 'entertainment', name: 'entertainment' },

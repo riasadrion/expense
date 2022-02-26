@@ -27,10 +27,10 @@ class ExpenseController extends Controller
                     $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm"></a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm"></a>';
                     return $actionBtn;
                 })
-                ->editColumn('created_at', function ($row) {
-                    return Carbon::parse($row->created_at)->format('d/m/Y');
+                ->editColumn('date', function ($row) {
+                    return Carbon::parse($row->date)->format('d/m/Y');
                 })
-                ->escapeColumns('created_at')
+                ->escapeColumns('date')
                 ->rawColumns(['action'])
                 ->make(true);
         }
@@ -54,7 +54,53 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'office_meal' => 'numeric|nullable',
+            'entertainment' => 'numeric|nullable',
+            'stationery' => 'numeric|nullable',
+            'maintenance' => 'numeric|nullable',
+            'conveyance' => 'numeric|nullable',
+            'gas_cylinder' => 'numeric|nullable',
+            'dish_bill' => 'numeric|nullable',
+            'medicine' => 'numeric|nullable',
+            'accomodation' => 'numeric|nullable',
+            'welfare' => 'numeric|nullable',
+            'delivery_expense' => 'numeric|nullable',
+            'labour_wage' => 'numeric|nullable',
+            'store_material' => 'numeric|nullable',
+            'transport' => 'numeric|nullable',
+            'fuel_oil' => 'numeric|nullable',
+            'vehicle_servicing' => 'numeric|nullable',
+            'toll_police_case' => 'numeric|nullable',
+            'date' => 'required|unique:expenses|before:tomorrow',
+        ]);
+
+        $expense = new Expense;
+
+        $expense->office_meal = $request->office_meal;
+        $expense->entertainment = $request->entertainment;
+        $expense->stationery = $request->stationery;
+        $expense->maintenance = $request->maintenance;
+        $expense->conveyance = $request->conveyance;
+        $expense->gas_cylinder = $request->gas_cylinder;
+        $expense->dish_bill = $request->dish_bill;
+        $expense->medicine = $request->medicine;
+        $expense->accomodation = $request->accomodation;
+        $expense->welfare = $request->welfare;
+        $expense->delivery_expense = $request->delivery_expense;
+        $expense->labour_wage = $request->labour_wage;
+        $expense->store_material = $request->store_material;
+        $expense->transport = $request->transport;
+        $expense->fuel_oil = $request->fuel_oil;
+        $expense->vehicle_servicing = $request->vehicle_servicing;
+        $expense->toll_police_case = $request->toll_police_case;
+        $expense->created_at = $request->created_at;
+        // $expense->created_by = Auth::user()->id;
+        if($expense->save()){
+            return redirect()->route('expenses.index');
+        }else{
+            return back();
+        }
     }
 
     /**

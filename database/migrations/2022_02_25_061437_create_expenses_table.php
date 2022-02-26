@@ -17,6 +17,7 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->integer('created_by')->nullable();
             $table->integer('total')->nullable();
+            $table->timestamp('date');
             $table->integer('office_meal')->nullable();
             $table->integer('entertainment')->nullable();
             $table->integer('stationery')->nullable();

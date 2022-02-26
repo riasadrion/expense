@@ -2,18 +2,28 @@
 @section('content')
 <div class="container">
     <h2 class="main-title">Add new expense</h2>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="row stat-cards">
         <div class="card col-12">
             <div class="card-body">
-                <form method="post" action="{{route('expenses.store')}}">
+                <form method="POST" action="{{route('expenses.store')}}">
                     @csrf
                     <div class="row">
                         <div class="form-group col-4">
                             <label>Date</label>
-                            <input class="datepicker form-control">
+                            <input name="date" class="datepicker form-control">
                         </div>
                         <div class="form-group col">
                             <label class="mr-2 font-weight-bold">Total</label>
+                            <input class="total form-control font-weight-bold" disabled>
                         </div>
                     </div>
                     <div class="row">
