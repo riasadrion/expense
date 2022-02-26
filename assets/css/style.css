@@ -44,6 +44,13 @@ button.dt-button {
 div#yajra_length {
     margin-right: 10px;
 }
+a:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+.form-control {
+    background: #d7d7d7;
+}
 /**
  * Render the `main` element consistently in IE.
  */

@@ -8,6 +8,7 @@
     <title>Expense</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{url('/')}}/assets/img/svg/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{url('/')}}/assets/css/style.css">
     @stack('css')
@@ -56,7 +57,7 @@
                                     <a href="{{ route('expenses.index')}}">All</a>
                                 </li>
                                 <li>
-                                    <a href="new-post.html">Add new</a>
+                                    <a href="{{ route('expenses.create')}}">Add new</a>
                                 </li>
                             </ul>
                         </li>
@@ -128,6 +129,8 @@
             </footer> -->
         </div>
     </div>
+    <script src="{{url('/')}}/assets/js/jquery.min.js"></script>
+    <script src="{{url('/')}}/assets/js/datepicker.js"></script>
     <script src="{{url('/')}}/assets/js/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="{{url('/')}}/assets/js/script.js"></script>
