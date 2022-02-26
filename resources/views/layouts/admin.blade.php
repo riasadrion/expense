@@ -130,11 +130,20 @@
         </div>
     </div>
     <script src="{{url('/')}}/assets/js/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script src="{{url('/')}}/assets/js/datepicker.js"></script>
     <script src="{{url('/')}}/assets/js/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="{{url('/')}}/assets/js/script.js"></script>
-
+    <!-- {!! Toastr::message() !!}
+    @if (count($errors) > 0)
+    @foreach($errors -> all() as $error)
+    <script>
+        toastr.error("{{ $error }}");
+    </script>
+    @endforeach
+    @endif -->
+    @include('sweetalert::alert')
     @stack('scripts')
 </body>
 

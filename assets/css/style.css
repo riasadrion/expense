@@ -49,7 +49,7 @@ a:hover {
     text-decoration: none !important;
 }
 .form-control {
-    background: #d7d7d7;
+    background: #e9ecef;
 }
 /**
  * Render the `main` element consistently in IE.

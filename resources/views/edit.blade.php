@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2 class="main-title">Add new expense</h2>
+    <h2 class="main-title">Update expense</h2>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -14,98 +14,115 @@
     <div class="row stat-cards">
         <div class="card col-12">
             <div class="card-body">
-                <form method="POST" action="{{route('expenses.store')}}">
+                <form method="POST" action="{{route('expenses.update', ['expense' => $expense->id])}}">
                     @csrf
+                    @method('put')
                     <div class="row">
 
                         <div class="form-group col-4">
                             <label class="mr-2 font-weight-bold">Total</label>
-                            <input class="total form-control font-weight-bold" disabled>
+                            <input class="total form-control font-weight-bold" disabled value="{{ $expense->total }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-4">
                             <label>Date</label>
-                            <input name="date" class="datepicker form-control">
+                            <input name="date" class="datepicker form-control" value="{{ $expense->date }}">
                         </div>
                         <div class="form-group col">
                             <label>Office Meal</label>
-                            <input type="number" class="form-control sum" id="office_meal" name="office_meal">
+                            <input type="number" class="form-control sum" id="office_meal" name="office_meal"
+                                value="{{ $expense->office_meal }}">
                         </div>
                         <div class="form-group col">
                             <label>Entertainment</label>
-                            <input type="number" class="form-control sum" id="entertainment" name="entertainment">
+                            <input type="number" class="form-control sum" id="entertainment" name="entertainment"
+                                value="{{ $expense->entertainment }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Stationery</label>
-                            <input type="number" class="form-control sum" id="stationery" name="stationery">
+                            <input type="number" class="form-control sum" id="stationery" name="stationery"
+                                value="{{ $expense->stationery }}">
                         </div>
                         <div class="form-group col">
                             <label>Office Maintenance</label>
-                            <input type="number" class="form-control sum" id="maintenance" name="maintenance">
+                            <input type="number" class="form-control sum" id="maintenance" name="maintenance"
+                                value="{{ $expense->maintenance }}">
                         </div>
                         <div class="form-group col">
                             <label>Conveyance</label>
-                            <input type="number" class="form-control sum" id="conveyance" name="conveyance">
+                            <input type="number" class="form-control sum" id="conveyance" name="conveyance"
+                                value="{{ $expense->conveyance }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Gas Cylinder(Cook)</label>
-                            <input type="number" class="form-control sum" id="gas_cylinder" name="gas_cylinder">
+                            <input type="number" class="form-control sum" id="gas_cylinder" name="gas_cylinder"
+                                value="{{ $expense->gas_cylinder }}">
                         </div>
                         <div class="form-group col">
                             <label>Dish Bill</label>
-                            <input type="number" class="form-control sum" id="dish_bill" name="dish_bill">
+                            <input type="number" class="form-control sum" id="dish_bill" name="dish_bill"
+                                value="{{ $expense->dish_bill }}">
                         </div>
                         <div class="form-group col">
                             <label>Medicine</label>
-                            <input type="number" class="form-control sum" id="medicine" name="medicine">
+                            <input type="number" class="form-control sum" id="medicine" name="medicine"
+                                value="{{ $expense->medicine }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Accomodation/Guest room Expense</label>
-                            <input type="number" class="form-control sum" id="accomodation" name="accomodation">
+                            <input type="number" class="form-control sum" id="accomodation" name="accomodation"
+                                value="{{ $expense->accomodation }}">
                         </div>
                         <div class="form-group col">
                             <label>Employee Welfare/Celebration</label>
-                            <input type="number" class="form-control sum" id="welfare" name="welfare">
+                            <input type="number" class="form-control sum" id="welfare" name="welfare"
+                                value="{{ $expense->welfare }}">
                         </div>
                         <div class="form-group col">
                             <label>Delivery Expense</label>
-                            <input type="number" class="form-control sum" id="delivery_expense" name="delivery_expense">
+                            <input type="number" class="form-control sum" id="delivery_expense" name="delivery_expense"
+                                value="{{ $expense->delivery_expense }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Wages-Hire Labour</label>
-                            <input type="number" class="form-control sum" id="labour_wage" name="labour_wage">
+                            <input type="number" class="form-control sum" id="labour_wage" name="labour_wage"
+                                value="{{ $expense->labour_wage }}">
                         </div>
                         <div class="form-group col">
                             <label>Store Material</label>
-                            <input type="number" class="form-control sum" id="store_material" name="store_material">
+                            <input type="number" class="form-control sum" id="store_material" name="store_material"
+                                value="{{ $expense->store_material }}">
                         </div>
                         <div class="form-group col">
                             <label>Truck Fare/Transport</label>
-                            <input type="number" class="form-control sum" id="transport" name="transport">
+                            <input type="number" class="form-control sum" id="transport" name="transport"
+                                value="{{ $expense->transport }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Fuel oil & Gas</label>
-                            <input type="number" class="form-control sum" id="fuel_oil" name="fuel_oil">
+                            <input type="number" class="form-control sum" id="fuel_oil" name="fuel_oil"
+                                value="{{ $expense->fuel_oil }}">
                         </div>
                         <div class="form-group col">
                             <label>Vehicle Servicing</label>
                             <input type="number" class="form-control sum" id="vehicle_servicing"
-                                name="vehicle_servicing">
+                                name="vehicle_servicing" value="{{ $expense->vehicle_servicing }}">
                         </div>
                         <div class="form-group col">
                             <label>Toll/Ferry & Police Case</label>
-                            <input type="number" class="form-control sum" id="toll_police_case" name="toll_police_case">
+                            <input type="number" class="form-control sum" id="toll_police_case" name="toll_police_case"
+                                value="{{ $expense->toll_police_case }}">
                         </div>
                         <!-- <div class="form-group col">
                             <label>Fuel oil & Gas</label>
@@ -151,8 +168,5 @@
         endDate: '0d'
     };
     $('.datepicker').datepicker(optSimple);
-    $('.datepicker').datepicker('setDate', today);
-
-
 </script>
 @endpush
