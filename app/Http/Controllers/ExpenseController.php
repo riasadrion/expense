@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use DataTables;
-use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 Use Alert;
 class ExpenseController extends Controller
@@ -21,7 +20,7 @@ class ExpenseController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = '<a href="'.route('expenses.edit', ['expense' => $row->id]).'" class="edit btn btn-success btn-sm"></a> <a href="'.route('expenses.destroy', ['expense' => $row->id]).'" class="delete btn btn-danger btn-sm"></a>';
+                    $actionBtn = '<a href="'.route('expenses.edit', ['expense' => $row->id]).'" class="edit btn btn-success btn-sm"></a> <a href="'.route('expenses.delete', ['expense' => $row->id]).'" class="delete btn btn-danger btn-sm"></a>';
                     return $actionBtn;
                 })
                 ->editColumn('date', function ($row) {
@@ -167,6 +166,12 @@ class ExpenseController extends Controller
 
     public function destroy(Expense $expense)
     {
-        //
+        if($expense->delete()){
+            toast('Deleted Successfully!','error');
+            return back();
+        }else{
+            toast('Failed!','error');
+            return back();
+        }
     }
 }

@@ -51,7 +51,7 @@
 
         var table = $('#yajra').DataTable({
             "scrollX": true,
-            scrollY: '50vh',
+            scrollY: '65vh',
             "lengthMenu": [[50, 100, 500, -1], [50, 100, 500, "All"]],
             processing: true,
             serverSide: true,

@@ -13,11 +13,17 @@ use App\Http\Controllers as Controllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [Controllers\UserController::class, 'loginPage'])->name('login-page');
+Route::post('login', [Controllers\UserController::class, 'login'])->name('login');
 
-Route::get('dashboard', [Controllers\PageController::class, 'dashboard'])->name('dashboard');
-Route::resource('expenses', Controllers\ExpenseController::class);
-Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
+Route::middleware('auth')->group(function () {
+    Route::get('logout', [Controllers\UserController::class, 'logout'])->name('logout');
+    Route::get('dashboard', [Controllers\PageController::class, 'dashboard'])->name('dashboard');
+    Route::resource('expenses', Controllers\ExpenseController::class);
+    Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
+    Route::get('expense-delete/{expense}', [Controllers\ExpenseController::class, 'destroy'])->name('expenses.delete');
 
-Auth::routes();
+    Route::resource('users', Controllers\UserController::class);
+    Route::post('users/search', [Controllers\UserController::class, 'search'])->name('users.search');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

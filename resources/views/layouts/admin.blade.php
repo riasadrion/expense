@@ -52,12 +52,29 @@
                                     <span class="icon arrow-down" aria-hidden="true"></span>
                                 </span>
                             </a>
-                            <ul class="cat-sub-menu">
+                            <ul class="cat-sub-menu visible">
                                 <li>
                                     <a href="{{ route('expenses.index')}}">All</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('expenses.create')}}">Add new</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="show-cat-btn" href="##">
+                                <span class="icon user-3" aria-hidden="true"></span>Users
+                                <span class="category__btn transparent-btn" title="Open list">
+                                    <span class="sr-only">Open list</span>
+                                    <span class="icon arrow-down" aria-hidden="true"></span>
+                                </span>
+                            </a>
+                            <ul class="cat-sub-menu">
+                                <li>
+                                    <a href="{{ route('users.index')}}">All</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('users.create')}}">Add new</a>
                                 </li>
                             </ul>
                         </li>
@@ -93,14 +110,10 @@
                             </button>
                             <ul class="users-item-dropdown nav-user-dropdown dropdown">
                                 <li><a href="##">
-                                        <i data-feather="user" aria-hidden="true"></i>
-                                        <span>Profile</span>
-                                    </a></li>
-                                <li><a href="##">
                                         <i data-feather="settings" aria-hidden="true"></i>
                                         <span>Account settings</span>
                                     </a></li>
-                                <li><a class="danger" href="##">
+                                <li><a class="danger" href="{{ route('logout') }}">
                                         <i data-feather="log-out" aria-hidden="true"></i>
                                         <span>Log out</span>
                                     </a></li>
@@ -130,19 +143,11 @@
         </div>
     </div>
     <script src="{{url('/')}}/assets/js/jquery.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="{{url('/')}}/assets/js/datepicker.js"></script>
     <script src="{{url('/')}}/assets/js/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="{{url('/')}}/assets/js/script.js"></script>
-    <!-- {!! Toastr::message() !!}
-    @if (count($errors) > 0)
-    @foreach($errors -> all() as $error)
-    <script>
-        toastr.error("{{ $error }}");
-    </script>
-    @endforeach
-    @endif -->
     @include('sweetalert::alert')
     @stack('scripts')
 </body>

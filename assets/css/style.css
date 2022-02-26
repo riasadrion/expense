@@ -48,6 +48,9 @@ a:hover {
     color: #ffffff !important;
     text-decoration: none !important;
 }
+.users-item-dropdown li a:hover {
+    color: rgb(65, 65, 65) !important;
+}
 .form-control {
     background: #e9ecef;
 }

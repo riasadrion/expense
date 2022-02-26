@@ -135,7 +135,7 @@
                         </div>
                         <div class="form-group col form-inline">
                             <label class="mr-2 font-weight-bold">Total</label>
-                            <input class="total form-control font-weight-bold" disabled>
+                            <input class="total form-control font-weight-bold" value="{{ $expense->total }}" disabled>
                         </div>
                     </div>
                 </form>
