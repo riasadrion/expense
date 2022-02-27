@@ -21,13 +21,13 @@
                 @csrf
                 <label class="form-label-wrapper">
                     <p class="form-label">Email</p>
-                    <input class="form-input" name="email" type="email" placeholder="Enter your email"
-                        value="test@malikseeds.com" required>
+                    <input class="form-input" name="email" type="email" placeholder="Enter your email" value=""
+                        required>
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Password</p>
-                    <input class="form-input" name="password" type="password" placeholder="Enter your password"
-                        value="test123" required>
+                    <input class="form-input" name="password" type="password" placeholder="Enter your password" value=""
+                        required>
                 </label>
 
                 <button type="submit" class="form-btn primary-default-btn transparent-btn">Sign in</button>
