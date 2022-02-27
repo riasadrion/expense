@@ -61,11 +61,13 @@
                                 </li>
                             </ul>
                         </li>
+                        @if(Auth::user()->user_group_id == 1)
                         <li>
                             <a class="{{ Request::routeIs('users.index') ? 'active' : '' }}"
                                 href="{{ route('users.index') }}"><span class="icon user-3"
                                     aria-hidden="true"></span>Users</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>

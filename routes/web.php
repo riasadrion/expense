@@ -23,8 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
     Route::get('expense-delete/{expense}', [Controllers\ExpenseController::class, 'destroy'])->name('expenses.delete');
 
-    Route::resource('users', Controllers\UserController::class);
-    Route::post('users/search', [Controllers\UserController::class, 'search'])->name('users.search');
+    Route::middleware('admin')->group(function () {
+        Route::resource('users', Controllers\UserController::class);
+        Route::post('users/search', [Controllers\UserController::class, 'search'])->name('users.search');
+    });
     Route::get('account', [Controllers\UserController::class, 'account'])->name('users.account');
 });
 
