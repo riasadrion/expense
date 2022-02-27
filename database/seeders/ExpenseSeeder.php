@@ -13,7 +13,7 @@ class ExpenseSeeder extends Seeder
      */
     public function run()
     {
-        for ($x = 0; $x <= 100; $x++) {
+        for ($x = 0; $x <= 2; $x++) {
             DB::table('expenses')->insert([
                 [ 
                     "date" => now(),
