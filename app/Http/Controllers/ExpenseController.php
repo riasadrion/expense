@@ -11,7 +11,7 @@ class ExpenseController extends Controller
 {
     public function index()
     {
-        return view('expenses');
+        return view('expenses.index');
     }
     
     public function getExpenses(Request $request){
@@ -34,7 +34,7 @@ class ExpenseController extends Controller
 
     public function create()
     {
-        return view('create');
+        return view('expenses.create');
     }
 
     public function store(Request $request)
@@ -103,7 +103,7 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense)
     {
-        return view('edit', compact('expense'));
+        return view('expenses.edit', compact('expense'));
     }
 
     public function update(Request $request, Expense $expense)

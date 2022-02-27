@@ -2,15 +2,6 @@
 @section('content')
 <div class="container">
     <h2 class="main-title">Add new expense</h2>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
     <div class="row stat-cards">
         <div class="card col-12">
             <div class="card-body">

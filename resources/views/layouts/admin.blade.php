@@ -62,21 +62,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon user-3" aria-hidden="true"></span>Users
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
-                            </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="{{ route('users.index')}}">All</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('users.create')}}">Add new</a>
-                                </li>
-                            </ul>
+                            <a class="{{ Request::routeIs('users.index') ? 'active' : '' }}"
+                                href="{{ route('users.index') }}"><span class="icon user-3"
+                                    aria-hidden="true"></span>Users</a>
                         </li>
                     </ul>
                 </div>
@@ -109,7 +97,7 @@
                                 </span>
                             </button>
                             <ul class="users-item-dropdown nav-user-dropdown dropdown">
-                                <li><a href="##">
+                                <li><a href="{{ route('users.account')}}">
                                         <i data-feather="settings" aria-hidden="true"></i>
                                         <span>Account settings</span>
                                     </a></li>
@@ -124,6 +112,15 @@
             </nav>
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @yield('content')
             </main>
             <!-- ! Footer -->

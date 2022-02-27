@@ -25,5 +25,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users', Controllers\UserController::class);
     Route::post('users/search', [Controllers\UserController::class, 'search'])->name('users.search');
+    Route::get('account', [Controllers\UserController::class, 'account'])->name('users.account');
 });
 
