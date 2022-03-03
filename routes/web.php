@@ -21,9 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', [Controllers\PageController::class, 'dashboard'])->name('dashboard');
     Route::resource('expenses', Controllers\ExpenseController::class);
     Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
-    Route::get('expense-delete/{expense}', [Controllers\ExpenseController::class, 'destroy'])->name('expenses.delete');
-
+    
     Route::middleware('admin')->group(function () {
+        Route::get('expense-delete/{expense}', [Controllers\ExpenseController::class, 'destroy'])->name('expenses.delete');
         Route::resource('users', Controllers\UserController::class);
         Route::post('users/search', [Controllers\UserController::class, 'search'])->name('users.search');
     });

@@ -107,7 +107,7 @@ class ExpenseController extends Controller
             return back();
         }else{
            if($expense->save()){
-                toast('Updated Successfully!','success');
+                toast('Added Successfully!','success');
                 return back();
             } 
         }

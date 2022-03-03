@@ -56,9 +56,11 @@
                                 <li>
                                     <a href="{{ route('expenses.index')}}">All</a>
                                 </li>
+                                @if(Auth::user()->user_group_id !=3)
                                 <li>
                                     <a href="{{ route('expenses.create')}}">Add new</a>
                                 </li>
+                                @endif
                             </ul>
                         </li>
                         @if(Auth::user()->user_group_id == 1)

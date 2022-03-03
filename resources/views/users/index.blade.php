@@ -40,8 +40,10 @@
                                 <td class="col-3">
                                     @if($item->user_group_id == 1)
                                     <span class="badge badge-pill btn-success text-white">Admin</span>
+                                    @elseif($item->user_group_id == 2)
+                                    <span class="badge badge-pill btn-primary">User</span>
                                     @else
-                                    <span class="badge badge-pill btn-secondary">User</span>
+                                    <span class="badge badge-pill btn-secondary">Viewer</span>
                                     @endif
                                 </td>
                                 <td class="col-3">
@@ -78,7 +80,8 @@
                         <label>@lang('User Group')</label>
                         <select name="user_group_id" id="" class="form-control">
                             <option value="1">Admin</option>
-                            <option value="2">User</option>
+                            <option value="2">Employee</option>
+                            <option value="3">Viewer</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -122,7 +125,8 @@
                         <label>@lang('User Group')</label>
                         <select name="user_group_id" id="user_group_id" class="form-control">
                             <option value="1">Admin</option>
-                            <option value="2">User</option>
+                            <option value="2">Employee</option>
+                            <option value="3">Viewer</option>
                         </select>
                     </div>
                     <div class="form-group">
