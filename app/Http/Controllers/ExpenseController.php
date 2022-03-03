@@ -15,12 +15,19 @@ class ExpenseController extends Controller
     }
     
     public function getExpenses(Request $request){
+        // dd($request->userType);
         if ($request->ajax()) {
             $data = Expense::all();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $actionBtn = '<a href="'.route('expenses.edit', ['expense' => $row->id]).'" class="edit btn btn-success btn-sm"></a> <a href="'.route('expenses.delete', ['expense' => $row->id]).'" class="delete btn btn-danger btn-sm"></a>';
+                ->addColumn('action', function($row) use($request){
+                    if($request->userType == 1){
+                        $actionBtn = '<a href="'.route('expenses.edit', ['expense' => $row->id]).'" class="edit btn btn-success btn-sm"></a> <a href="'.route('expenses.delete', ['expense' => $row->id]).'" class="delete btn btn-danger btn-sm"></a>';
+                    }elseif($request->userType == 2){
+                        $actionBtn = '<a href="'.route('expenses.edit', ['expense' => $row->id]).'" class="edit btn btn-success btn-sm"></a>';
+                    }else{
+                        $actionBtn = "";
+                    }
                     return $actionBtn;
                 })
                 ->editColumn('date', function ($row) {
@@ -42,17 +49,22 @@ class ExpenseController extends Controller
         $request->validate([
             'office_meal' => 'numeric|nullable',
             'entertainment' => 'numeric|nullable',
+            'entertainment_warehouse' => 'numeric|nullable',
             'stationery' => 'numeric|nullable',
+            'stationery_warehouse' => 'numeric|nullable',
             'maintenance' => 'numeric|nullable',
             'conveyance' => 'numeric|nullable',
+            'conveyance_warehouse' => 'numeric|nullable',
             'gas_cylinder' => 'numeric|nullable',
             'dish_bill' => 'numeric|nullable',
             'medicine' => 'numeric|nullable',
+            'medicine_warehouse' => 'numeric|nullable',
             'accomodation' => 'numeric|nullable',
             'welfare' => 'numeric|nullable',
             'delivery_expense' => 'numeric|nullable',
             'labour_wage' => 'numeric|nullable',
             'store_material' => 'numeric|nullable',
+            'store_material_warehouse' => 'numeric|nullable',
             'transport' => 'numeric|nullable',
             'fuel_oil' => 'numeric|nullable',
             'vehicle_servicing' => 'numeric|nullable',
@@ -63,17 +75,22 @@ class ExpenseController extends Controller
         $expense = new Expense;
         $expense->office_meal = $request->office_meal;
         $expense->entertainment = $request->entertainment;
+        $expense->entertainment_warehouse = $request->entertainment_warehouse;
         $expense->stationery = $request->stationery;
-        $expense->maintenance = $request->maintenance;
+        $expense->stationery_warehouse = $request->stationery_warehouse;
+        $expense->medicine = $request->medicine;
+        $expense->medicine_warehouse = $request->medicine_warehouse;
         $expense->conveyance = $request->conveyance;
+        $expense->conveyance_warehouse = $request->conveyance_warehouse;
+        $expense->store_material = $request->store_material;
+        $expense->store_material_warehouse = $request->store_material_warehouse;
+        $expense->maintenance = $request->maintenance;
         $expense->gas_cylinder = $request->gas_cylinder;
         $expense->dish_bill = $request->dish_bill;
-        $expense->medicine = $request->medicine;
         $expense->accomodation = $request->accomodation;
         $expense->welfare = $request->welfare;
         $expense->delivery_expense = $request->delivery_expense;
         $expense->labour_wage = $request->labour_wage;
-        $expense->store_material = $request->store_material;
         $expense->transport = $request->transport;
         $expense->fuel_oil = $request->fuel_oil;
         $expense->vehicle_servicing = $request->vehicle_servicing;
@@ -81,7 +98,7 @@ class ExpenseController extends Controller
         $timestamp = date('Y-m-d H:i:s', strtotime($request->date));
         $expense->date = $timestamp;
 
-        $expense->total = $request->office_meal + $request->entertainment + $request->stationery + $request->maintenance + $request->conveyance + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case;
+        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case;
          
         // $expense->created_by = Auth::user()->id;
         $ifExistsDate = Expense::where('date', $timestamp)->first();
@@ -111,17 +128,22 @@ class ExpenseController extends Controller
         $request->validate([
             'office_meal' => 'numeric|nullable',
             'entertainment' => 'numeric|nullable',
+            'entertainment_warehouse' => 'numeric|nullable',
             'stationery' => 'numeric|nullable',
+            'stationery_warehouse' => 'numeric|nullable',
             'maintenance' => 'numeric|nullable',
             'conveyance' => 'numeric|nullable',
+            'conveyance_warehouse' => 'numeric|nullable',
             'gas_cylinder' => 'numeric|nullable',
             'dish_bill' => 'numeric|nullable',
             'medicine' => 'numeric|nullable',
+            'medicine_warehouse' => 'numeric|nullable',
             'accomodation' => 'numeric|nullable',
             'welfare' => 'numeric|nullable',
             'delivery_expense' => 'numeric|nullable',
             'labour_wage' => 'numeric|nullable',
             'store_material' => 'numeric|nullable',
+            'store_material_warehouse' => 'numeric|nullable',
             'transport' => 'numeric|nullable',
             'fuel_oil' => 'numeric|nullable',
             'vehicle_servicing' => 'numeric|nullable',
@@ -131,17 +153,22 @@ class ExpenseController extends Controller
 
         $expense->office_meal = $request->office_meal;
         $expense->entertainment = $request->entertainment;
+        $expense->entertainment_warehouse = $request->entertainment_warehouse;
         $expense->stationery = $request->stationery;
-        $expense->maintenance = $request->maintenance;
+        $expense->stationery_warehouse = $request->stationery_warehouse;
+        $expense->medicine = $request->medicine;
+        $expense->medicine_warehouse = $request->medicine_warehouse;
         $expense->conveyance = $request->conveyance;
+        $expense->conveyance_warehouse = $request->conveyance_warehouse;
+        $expense->store_material = $request->store_material;
+        $expense->store_material_warehouse = $request->store_material_warehouse;
+        $expense->maintenance = $request->maintenance;
         $expense->gas_cylinder = $request->gas_cylinder;
         $expense->dish_bill = $request->dish_bill;
-        $expense->medicine = $request->medicine;
         $expense->accomodation = $request->accomodation;
         $expense->welfare = $request->welfare;
         $expense->delivery_expense = $request->delivery_expense;
         $expense->labour_wage = $request->labour_wage;
-        $expense->store_material = $request->store_material;
         $expense->transport = $request->transport;
         $expense->fuel_oil = $request->fuel_oil;
         $expense->vehicle_servicing = $request->vehicle_servicing;
@@ -149,7 +176,7 @@ class ExpenseController extends Controller
         $timestamp = date('Y-m-d H:i:s', strtotime($request->date));
         $expense->date = $timestamp;
 
-        $expense->total = $request->office_meal + $request->entertainment + $request->stationery + $request->maintenance + $request->conveyance + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case;
+        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case;
          
         // $expense->created_by = Auth::user()->id;
         $ifExistsDate = Expense::where('date', $timestamp)->first();
