@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense</title>
+    <title>Daily Expense</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{url('/')}}/assets/img/svg/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -27,8 +27,8 @@
                         <span class="sr-only">Home</span>
                         <span class="icon logo" aria-hidden="true"></span>
                         <div class="logo-text">
-                            <span class="logo-title">Expense</span>
-                            <span class="logo-subtitle">Dashboard</span>
+                            <span class="logo-title">Panel</span>
+                            <span class="logo-subtitle">Daily Expense</span>
                         </div>
 
                     </a>
