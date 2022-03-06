@@ -53,6 +53,8 @@ class ExpenseController extends Controller
             'stationery' => 'numeric|nullable',
             'stationery_warehouse' => 'numeric|nullable',
             'maintenance' => 'numeric|nullable',
+            'import_permit' => 'numeric|nullable',
+            'tips' => 'numeric|nullable',
             'conveyance' => 'numeric|nullable',
             'conveyance_warehouse' => 'numeric|nullable',
             'gas_cylinder' => 'numeric|nullable',
@@ -85,6 +87,8 @@ class ExpenseController extends Controller
         $expense->store_material = $request->store_material;
         $expense->store_material_warehouse = $request->store_material_warehouse;
         $expense->maintenance = $request->maintenance;
+        $expense->import_permit = $request->import_permit;
+        $expense->tips = $request->tips;
         $expense->gas_cylinder = $request->gas_cylinder;
         $expense->dish_bill = $request->dish_bill;
         $expense->accomodation = $request->accomodation;
@@ -132,6 +136,8 @@ class ExpenseController extends Controller
             'stationery' => 'numeric|nullable',
             'stationery_warehouse' => 'numeric|nullable',
             'maintenance' => 'numeric|nullable',
+            'import_permit' => 'numeric|nullable',
+            'tips' => 'numeric|nullable',
             'conveyance' => 'numeric|nullable',
             'conveyance_warehouse' => 'numeric|nullable',
             'gas_cylinder' => 'numeric|nullable',
@@ -163,6 +169,8 @@ class ExpenseController extends Controller
         $expense->store_material = $request->store_material;
         $expense->store_material_warehouse = $request->store_material_warehouse;
         $expense->maintenance = $request->maintenance;
+        $expense->import_permit = $request->import_permit;
+        $expense->tips = $request->tips;
         $expense->gas_cylinder = $request->gas_cylinder;
         $expense->dish_bill = $request->dish_bill;
         $expense->accomodation = $request->accomodation;

@@ -18,6 +18,8 @@
                     <th>Stationery</th>
                     <th>Stationery(Warehouse)</th>
                     <th>Office Maintenance</th>
+                    <th>Import Permit Expenses</th>
+                    <th>Tips</th>
                     <th>Conveyance</th>
                     <th>Conveyance(Warehouse)</th>
                     <th>Gas Cylinder(Cook)</th>
@@ -86,6 +88,8 @@
                 { data: 'stationery', name: 'stationery' },
                 { data: 'stationery_warehouse', name: 'stationery_warehouse' },
                 { data: 'maintenance', name: 'maintenance' },
+                { data: 'import_permit', name: 'import_permit' },
+                { data: 'tips', name: 'tips' },
                 { data: 'conveyance', name: 'conveyance' },
                 { data: 'conveyance_warehouse', name: 'conveyance_warehouse' },
                 { data: 'gas_cylinder', name: 'gas_cylinder' },

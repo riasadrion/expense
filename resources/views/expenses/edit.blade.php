@@ -61,8 +61,16 @@
                             <input type="number" class="form-control sum" id="maintenance" name="maintenance"
                                 value="{{ $expense->maintenance }}">
                         </div>
+                        <div class="form-group col">
+                            <label>Import Permit Expenses</label>
+                            <input type="number" class="form-control sum" id="import_permit" name="import_permit">
+                        </div>
                     </div>
                     <div class="row">
+                        <div class="form-group col">
+                            <label>Tips</label>
+                            <input type="number" class="form-control sum" id="tips" name="tips">
+                        </div>
                         <div class="form-group col">
                             <label>Conveyance</label>
                             <input type="number" class="form-control sum" id="conveyance" name="conveyance"
