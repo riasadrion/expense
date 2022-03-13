@@ -53,14 +53,14 @@
                                 </span>
                             </a>
                             <ul class="cat-sub-menu visible">
+                                @if(Auth::user()->user_group_id == 1)
                                 <li>
-                                    <a href="{{ route('expenses.index')}}">All</a>
-                                </li>
-                                @if(Auth::user()->user_group_id !=3)
-                                <li>
-                                    <a href="{{ route('expenses.create')}}">Add new</a>
+                                    <a href="{{ route('expenses.index')}}">Admin Expenses</a>
                                 </li>
                                 @endif
+                                <li>
+                                    <a href="{{ route('warehouse.expense')}}">Warehouse Expenses</a>
+                                </li>
                             </ul>
                         </li>
                         @if(Auth::user()->user_group_id == 1)

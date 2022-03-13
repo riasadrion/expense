@@ -41,7 +41,7 @@
                                     @if($item->user_group_id == 1)
                                     <span class="badge badge-pill btn-success text-white">Admin</span>
                                     @elseif($item->user_group_id == 2)
-                                    <span class="badge badge-pill btn-primary">User</span>
+                                    <span class="badge badge-pill btn-primary">Employee</span>
                                     @else
                                     <span class="badge badge-pill btn-secondary">Viewer</span>
                                     @endif
