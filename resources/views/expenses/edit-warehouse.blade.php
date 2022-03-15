@@ -35,18 +35,30 @@
                                 name="entertainment_warehouse" value="{{ $expense->entertainment_warehouse }}">
                         </div>
                         <div class="form-group col">
-                            <label>Stationery</label>
-                            <input type="number" class="form-control sum" id="stationery_warehouse"
-                                name="stationery_warehouse" value="{{ $expense->stationery_warehouse }}">
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="form-group col">
                             <label>Conveyance</label>
                             <input type="number" class="form-control sum" id="conveyance_warehouse"
                                 name="conveyance_warehouse" value="{{ $expense->conveyance_warehouse }}">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Delivery Expense</label>
+                            <input type="number" class="form-control sum" id="delivery_expense" name="delivery_expense"
+                                value="{{ $expense->delivery_expense }}">
+                        </div>
+                        <div class="form-group col">
+                            <label>Wages-Hire Labour</label>
+                            <input type="number" class="form-control sum" id="labour_wage" name="labour_wage"
+                                value="{{ $expense->labour_wage }}">
+                        </div>
+                        <div class="form-group col">
+                            <label>Stationery</label>
+                            <input type="number" class="form-control sum" id="stationery_warehouse"
+                                name="stationery_warehouse" value="{{ $expense->stationery_warehouse }}">
+                        </div>
+
+                    </div>
+                    <div class="row">
                         <div class="form-group col">
                             <label>Store Material</label>
                             <input type="number" class="form-control sum" id="store_material_warehouse"
@@ -91,8 +103,6 @@
         $('.total').val(sum);
     });
 
-    var date = new Date();
-    var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     var optSimple = {
         format: 'dd-mm-yyyy',
         todayHighlight: true,

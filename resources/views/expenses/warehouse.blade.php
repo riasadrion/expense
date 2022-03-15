@@ -15,6 +15,8 @@
                     <th>Entertainment</th>
                     <th>Stationery</th>
                     <th>Conveyance</th>
+                    <th>Delivery Expense</th>
+                    <th>Wages-Hire Labour</th>
                     <th>Medicine</th>
                     <th>Store Material</th>
                     <th>Maintenance</th>
@@ -67,6 +69,8 @@
                 { data: 'entertainment_warehouse', name: 'entertainment_warehouse' },
                 { data: 'stationery_warehouse', name: 'stationery_warehouse' },
                 { data: 'conveyance_warehouse', name: 'conveyance_warehouse' },
+                { data: 'delivery_expense', name: 'delivery_expense' },
+                { data: 'labour_wage', name: 'labour_wage' },
                 { data: 'medicine_warehouse', name: 'medicine_warehouse' },
                 { data: 'store_material_warehouse', name: 'store_material_warehouse' },
                 { data: 'maintenance_warehouse', name: 'maintenance_warehouse' },
