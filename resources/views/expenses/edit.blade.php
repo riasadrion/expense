@@ -53,13 +53,15 @@
                         </div>
                         <div class="form-group col">
                             <label>Import Permit Expenses</label>
-                            <input type="number" class="form-control sum" id="import_permit" name="import_permit">
+                            <input type="number" class="form-control sum" id="import_permit" name="import_permit"
+                                value="{{ $expense->import_permit }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Tips</label>
-                            <input type="number" class="form-control sum" id="tips" name="tips">
+                            <input type="number" class="form-control sum" id="tips" name="tips"
+                                value="{{ $expense->tips }}">
                         </div>
                         <div class="form-group col">
                             <label>Conveyance</label>
@@ -167,15 +169,12 @@
         });
         $('.total').val(sum);
     });
-
-    var date = new Date();
-    var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     var optSimple = {
         format: 'dd-mm-yyyy',
         todayHighlight: true,
         orientation: 'bottom right',
         autoclose: true,
-        startDate: '-6d',
+        // startDate: '-6d',
         endDate: '0d'
     };
     $('.datepicker').datepicker(optSimple);

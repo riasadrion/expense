@@ -203,7 +203,7 @@ class ExpenseController extends Controller
             'vehicle_servicing' => 'numeric|nullable',
             'toll_police_case' => 'numeric|nullable',
             'mobile_bill' => 'numeric|nullable',
-            'date' => 'required|before:tomorrow|after:-1 week',
+            // 'date' => 'required|before:tomorrow|after:-1 week',
         ]);
 
         $expense->office_meal = $request->office_meal;
