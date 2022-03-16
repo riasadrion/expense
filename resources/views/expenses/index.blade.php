@@ -25,8 +25,6 @@
                     <th>Medicine</th>
                     <th>Accomodation/Guest room Expense</th>
                     <th>Employee Welfare/Celebration</th>
-                    <th>Delivery Expense</th>
-                    <th>Wages-Hire Labour</th>
                     <th>Store Material</th>
                     <th>Truck Fare/Transport</th>
                     <th>Fuel oil & Gas</th>
@@ -91,8 +89,6 @@
                 { data: 'medicine', name: 'medicine' },
                 { data: 'accomodation', name: 'accomodation' },
                 { data: 'welfare', name: 'welfare' },
-                { data: 'delivery_expense', name: 'delivery_expense' },
-                { data: 'labour_wage', name: 'labour_wage' },
                 { data: 'store_material', name: 'store_material' },
                 { data: 'transport', name: 'transport' },
                 { data: 'fuel_oil', name: 'fuel_oil' },

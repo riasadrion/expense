@@ -76,16 +76,6 @@
                             <input type="number" class="form-control sum" id="welfare" name="welfare">
                         </div>
                         <div class="form-group col">
-                            <label>Delivery Expense</label>
-                            <input type="number" class="form-control sum" id="delivery_expense" name="delivery_expense">
-                        </div>
-                        <div class="form-group col">
-                            <label>Wages-Hire Labour</label>
-                            <input type="number" class="form-control sum" id="labour_wage" name="labour_wage">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
                             <label>Store Material</label>
                             <input type="number" class="form-control sum" id="store_material" name="store_material">
                         </div>
@@ -93,12 +83,12 @@
                             <label>Truck Fare/Transport</label>
                             <input type="number" class="form-control sum" id="transport" name="transport">
                         </div>
-                        <div class="form-group col">
-                            <label>Fuel oil & Gas</label>
-                            <input type="number" class="form-control sum" id="fuel_oil" name="fuel_oil">
-                        </div>
                     </div>
                     <div class="row">
+                        <div class="form-group col">
+                            <label>Fuel Oil & Gas</label>
+                            <input type="number" class="form-control sum" id="fuel_oil" name="fuel_oil">
+                        </div>
                         <div class="form-group col">
                             <label>Vehicle Servicing</label>
                             <input type="number" class="form-control sum" id="vehicle_servicing"

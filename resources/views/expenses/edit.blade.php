@@ -98,18 +98,6 @@
                                 value="{{ $expense->welfare }}">
                         </div>
                         <div class="form-group col">
-                            <label>Delivery Expense</label>
-                            <input type="number" class="form-control sum" id="delivery_expense" name="delivery_expense"
-                                value="{{ $expense->delivery_expense }}">
-                        </div>
-                        <div class="form-group col">
-                            <label>Wages-Hire Labour</label>
-                            <input type="number" class="form-control sum" id="labour_wage" name="labour_wage"
-                                value="{{ $expense->labour_wage }}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
                             <label>Store Material</label>
                             <input type="number" class="form-control sum" id="store_material" name="store_material"
                                 value="{{ $expense->store_material }}">
@@ -119,13 +107,13 @@
                             <input type="number" class="form-control sum" id="transport" name="transport"
                                 value="{{ $expense->transport }}">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="form-group col">
                             <label>Fuel oil & Gas</label>
                             <input type="number" class="form-control sum" id="fuel_oil" name="fuel_oil"
                                 value="{{ $expense->fuel_oil }}">
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group col">
                             <label>Vehicle Servicing</label>
                             <input type="number" class="form-control sum" id="vehicle_servicing"
@@ -169,6 +157,7 @@
         });
         $('.total').val(sum);
     });
+
     var optSimple = {
         format: 'dd-mm-yyyy',
         todayHighlight: true,
