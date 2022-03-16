@@ -142,7 +142,7 @@ class ExpenseController extends Controller
         $timestamp = date('Y-m-d H:i:s', strtotime($request->date));
         $expense->date = $timestamp;
 
-        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case + $request->maintenance_warehouse + $request->mobile_bill;
+        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->import_permit + $request->tips + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case + $request->maintenance_warehouse + $request->mobile_bill;
         if($expense->save()){
             toast('Added Successfully!','success');
             return back();
@@ -235,7 +235,7 @@ class ExpenseController extends Controller
         $timestamp = date('Y-m-d H:i:s', strtotime($request->date));
         $expense->date = $timestamp;
 
-        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case + $request->maintenance_warehouse + $request->mobile_bill;
+        $expense->total = $request->office_meal + $request->entertainment + $request->entertainment_warehouse + $request->stationery + $request->stationery_warehouse + $request->maintenance + $request->import_permit + $request->tips + $request->conveyance + $request->conveyance_warehouse + $request->gas_cylinder + $request->dish_bill + $request->medicine + $request->medicine_warehouse + $request->accomodation + $request->welfare + $request->delivery_expense + $request->labour_wage + $request->store_material + $request->store_material_warehouse + $request->transport + $request->fuel_oil + $request->vehicle_servicing + $request->toll_police_case + $request->maintenance_warehouse + $request->mobile_bill;
          if($expense->save()){
             toast('Updated Successfully!','success');
             return back();

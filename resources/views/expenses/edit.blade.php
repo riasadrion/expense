@@ -18,7 +18,6 @@
                     @csrf
                     @method('put')
                     <div class="row">
-
                         <div class="form-group col-4">
                             <label class="mr-2 font-weight-bold">Total</label>
                             <input class="total form-control font-weight-bold" disabled value="{{ $expense->total }}">

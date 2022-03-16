@@ -53,12 +53,10 @@
                                 </span>
                             </a>
                             <ul class="cat-sub-menu visible">
-                                @if(Auth::user()->user_group_id == 1)
                                 <li>
                                     <a href="{{ route('expenses.index')}}">Admin Expenses</a>
                                 </li>
-                                @endif
-                                <li>
+                                  <li>
                                     <a href="{{ route('warehouse.expense')}}">Warehouse Expenses</a>
                                 </li>
                             </ul>
