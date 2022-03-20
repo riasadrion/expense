@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function getReport(){
-        $from = date('2022-02-01');
-        $to = date('2022-05-10');
-        $thisMonth =  DB::table('expenses')
-                        ->select(DB::raw('SUM(total) as total, 
+    public function report(){
+        return view('reports.date-range');
+    }
+    public function getReport(Request $request){
+        // SUM(SUM(office_meal) + SUM(entertainment) + SUM(stationery) + SUM(maintenance) + SUM(mobile_bill) + SUM(import_permit) + SUM(tips) + SUM(conveyance) + SUM(gas_cylinder) + SUM(dish_bill) + SUM(medicine) + SUM(accomodation) + SUM(welfare) + SUM(store_material) + SUM(transport) + SUM(fuel_oil) + SUM(vehicle_servicing) + SUM(toll_police_case)) as admin_total,
+        $from = date('Y-m-d H:i:s', strtotime($request->from));
+        $to = date('Y-m-d H:i:s', strtotime($request->to));
+        $data =  DB::table('expenses')
+                        ->select(DB::raw('SUM(total) as total,
                             SUM(office_meal) as office_meal, 
                             SUM(entertainment) as entertainment, 
                             SUM(entertainment_warehouse) as entertainment_warehouse, 
@@ -31,6 +35,7 @@ class ReportController extends Controller
                             SUM(accomodation) as accomodation, 
                             SUM(welfare) as welfare, 
                             SUM(delivery_expense) as delivery_expense, 
+                            SUM(labour_wage) as labour_wage, 
                             SUM(store_material) as store_material, 
                             SUM(store_material_warehouse) as store_material_warehouse, 
                             SUM(transport) as transport, 
@@ -39,7 +44,6 @@ class ReportController extends Controller
                             SUM(toll_police_case) as toll_police_case, 
                             SUM(mobile_bill) as mobile_bill'))
                         ->whereBetween('date', [$from, $to])->first();
-        dd($thisMonth);
-        return view('report', compact('thisMonth', 'prevMonth', 'thisYear'));
+        return view('reports.result', compact('data', 'from', 'to'));
     }
 }

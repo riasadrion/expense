@@ -45,7 +45,7 @@
                                     aria-hidden="true"></span>Dashboard</a>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
+                            <a class="show-cat-btn" href="#">
                                 <span class="icon document" aria-hidden="true"></span>Expenses
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
@@ -56,8 +56,11 @@
                                 <li>
                                     <a href="{{ route('expenses.index')}}">Admin Expenses</a>
                                 </li>
-                                  <li>
+                                <li>
                                     <a href="{{ route('warehouse.expense')}}">Warehouse Expenses</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('report')}}">Report</a>
                                 </li>
                             </ul>
                         </li>

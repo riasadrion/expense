@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2 class="main-title">Expenses @if(Auth::user()->user_group_id != 3)<a class="btn btn-success btn-sm"
-            href="{{route('expenses.create')}}">Add new</a>@endif
-    </h2>
+    <div class="row">
+        <div class="col">
+            <h2 class="main-title">Expenses @if(Auth::user()->user_group_id != 3)<a class="btn btn-success btn-sm"
+                    href="{{route('expenses.create')}}">Add new</a>@endif
+            </h2>
+        </div>
+    </div>
     <div class="row stat-cards overflow-hidden">
         <table id="yajra" class="display nowrap" style="width:100%">
             <thead>
