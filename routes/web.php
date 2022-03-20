@@ -19,6 +19,7 @@ Route::post('login', [Controllers\UserController::class, 'login'])->name('login'
 Route::middleware('auth')->group(function () {
     Route::get('logout', [Controllers\UserController::class, 'logout'])->name('logout');
     Route::get('dashboard', [Controllers\PageController::class, 'dashboard'])->name('dashboard');
+    Route::get('report', [Controllers\ReportController::class, 'getReport'])->name('report');
     Route::resource('expenses', Controllers\ExpenseController::class);
     Route::get('expense-list', [Controllers\ExpenseController::class, 'getExpenses'])->name('expense.list');
     Route::get('warehouse-expenses', [Controllers\ExpenseController::class, 'warehouseExpense'])->name('warehouse.expense');
