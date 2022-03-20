@@ -22,7 +22,6 @@ class PageController extends Controller
         $prevMonth = Expense::whereYear('date', $year)
         ->whereMonth('date', $lastMonth)
         ->sum('total');
-
         return view('dashboard', compact('thisMonth', 'prevMonth', 'thisYear'));
     }
 }
