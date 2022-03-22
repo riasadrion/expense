@@ -162,7 +162,7 @@
         todayHighlight: true,
         orientation: 'bottom right',
         autoclose: true,
-        // startDate: '-6d',
+        startDate: '-14d',
         endDate: '0d'
     };
     $('.datepicker').datepicker(optSimple);
