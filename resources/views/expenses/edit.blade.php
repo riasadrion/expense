@@ -131,6 +131,28 @@
                     </div>
                     <div class="row">
                         <div class="form-group col">
+                            <label>Legal Fees</label>
+                            <input type="number" class="form-control sum" id="legal_fees" name="legal_fees"
+                                value="{{ $expense->legal_fees }}">
+                        </div>
+                        <div class="form-group col">
+                            <label>Donation</label>
+                            <input type="number" class="form-control sum" id="donation" name="donation"
+                                value="{{ $expense->donation }}">
+                        </div>
+                        <div class="form-group col">
+                            <label>IT Accessories</label>
+                            <input type="number" class="form-control sum" id="it_accessories" name="it_accessories"
+                                value="{{ $expense->it_accessories }}">
+                        </div>
+                        <div class="form-group col">
+                            <label>Parking Bill</label>
+                            <input type="number" class="form-control sum" id="parking_bill" name="parking_bill"
+                                value="{{ $expense->parking_bill }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                         <div class="form-group col form-inline">

@@ -42,7 +42,11 @@ class ReportController extends Controller
                             SUM(fuel_oil) as fuel_oil, 
                             SUM(vehicle_servicing) as vehicle_servicing, 
                             SUM(toll_police_case) as toll_police_case, 
-                            SUM(mobile_bill) as mobile_bill'))
+                            SUM(mobile_bill) as mobile_bill,
+                            SUM(legal_fees) as legal_fees, 
+                            SUM(donation) as donation, 
+                            SUM(it_accessories) as it_accessories, 
+                            SUM(parking_bill) as parking_bill'))
                         ->whereBetween('date', [$from, $to])->first();
         return view('reports.result', compact('data', 'from', 'to'));
     }

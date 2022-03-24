@@ -118,6 +118,22 @@
                                 <td>Toll/Ferry & Police Case</td>
                                 <td>{{ $data->toll_police_case }}</td>
                             </tr>
+                            <tr>
+                                <td>Legal Fees</td>
+                                <td>{{ $data->legal_fees }}</td>
+                            </tr>
+                            <tr>
+                                <td>Donation</td>
+                                <td>{{ $data->donation }}</td>
+                            </tr>
+                            <tr>
+                                <td>IT Accessories</td>
+                                <td>{{ $data->it_accessories }}</td>
+                            </tr>
+                            <tr>
+                                <td>Parking Bill</td>
+                                <td>{{ $data->parking_bill }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

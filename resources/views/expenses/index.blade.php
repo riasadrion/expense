@@ -34,6 +34,10 @@
                     <th>Fuel oil & Gas</th>
                     <th>Vehicle Servicing</th>
                     <th>Toll/Ferry & Police Case</th>
+                    <th>Legal Fees</th>
+                    <th>Donation</th>
+                    <th>IT Accessories</th>
+                    <th>Parking Bill</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,6 +102,10 @@
                 { data: 'fuel_oil', name: 'fuel_oil' },
                 { data: 'vehicle_servicing', name: 'vehicle_servicing' },
                 { data: 'toll_police_case', name: 'toll_police_case' },
+                { data: 'legal_fees', name: 'legal_fees' },
+                { data: 'donation', name: 'donation' },
+                { data: 'it_accessories', name: 'it_accessories' },
+                { data: 'parking_bill', name: 'parking_bill' },
             ]
         });
 
